@@ -7,7 +7,7 @@
   <title>About CoNet Ltd | Our Vision for Africa's Digital Future</title>
   <meta name="description" content="CoNet Ltd empowers African SMEs with accessible, world-class digital tools, custom software, and data-driven strategies." />
 
-  <!-- Canonical + Open Graph (use your GitHub Pages URL for About page) -->
+  <!-- Canonical + Open Graph (GitHub Pages URL for About page) -->
   <link rel="canonical" href="https://kingbola1.github.io/CoNet/about.html" />
   <meta property="og:title" content="About CoNet Ltd" />
   <meta property="og:description" content="Our mission is to empower African SMEs and fuel a digital-first future." />
@@ -106,7 +106,7 @@
       </svg>
     </section>
 
-    <!-- Who We Are (restored) -->
+    <!-- Who We Are (now with WebP fallback) -->
     <section class="container about-section">
       <div class="about-content" data-reveal>
         <h2 class="section-title-left">Who We Are</h2>
@@ -114,7 +114,10 @@
         <p>Our approach is practical and measurable: clear roadmaps, on‑time delivery, and dashboards that show results.</p>
       </div>
       <div class="about-image" data-reveal>
-        <img src="images/about-team.jpg" alt="The diverse and professional team of CoNet Ltd" width="1200" height="800" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="images/about-team.webp" type="image/webp">
+          <img src="images/about-team.jpg" alt="The diverse and professional team of CoNet Ltd" width="1200" height="800" loading="lazy" decoding="async">
+        </picture>
       </div>
     </section>
 
