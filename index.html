@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" href="images/favicon.ico?v=1" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=1">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#D4AF37">
 <head>
-  <link rel="canonical" href="https://kingbola1.github.io/CoNet/">
-<meta property="og:url" content="https://kingbola1.github.io/CoNet/">
-<meta property="og:image" content="https://kingbola1.github.io/CoNet/images/og-cover.jpg">
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoNet Ltd — Digital Transformation for Africa's SMEs</title>
-  <meta name="description" content="One partner for brand, websites, video, software, and data—built for African markets, aligned to global standards."/>
-  <link rel="canonical" href="https://yourdomain.com/"/>
-  <meta property="og:title" content="CoNet Ltd — Digital Transformation for Africa's SMEs"/>
-  <meta property="og:description" content="We build the technology backbone for Africa’s most ambitious businesses—from launch to market leadership."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://yourdomain.com/"/>
-  <meta property="og:image" content="https://yourdomain.com/images/og-cover.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="description" content="One partner for brand, websites, video, software, and data—built for African markets, aligned to global standards." />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'"> <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap"></noscript> 
-  <link rel="stylesheet" href="css/style.css"/>
+  <!-- Canonical + Open Graph (use your GitHub Pages URL) -->
+  <link rel="canonical" href="https://kingbola1.github.io/CoNet/" />
+  <meta property="og:title" content="CoNet Ltd — Digital Transformation for Africa's SMEs" />
+  <meta property="og:description" content="We build the technology backbone for Africa’s most ambitious businesses—from launch to market leadership." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kingbola1.github.io/CoNet/" />
+  <meta property="og:image" content="https://kingbola1.github.io/CoNet/images/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons / PWA -->
+  <link rel="icon" href="images/favicon.ico?v=1" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=1">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#D4AF37">
+
+  <!-- Google Fonts (preload to reduce blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap">
+  </noscript>
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Organization schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CoNet Ltd",
+    "url": "https://kingbola1.github.io/CoNet/",
+    "logo": "https://kingbola1.github.io/CoNet/images/android-chrome-192x192.png",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+212800760644",
+      "email": "conet@gmail.com",
+      "contactType": "customer support",
+      "areaServed": "Africa",
+      "availableLanguage": ["en"]
+    }],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No. 212 Uruhu St",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "sameAs": []
+  }
+  </script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -57,13 +96,15 @@
       <div class="hero-content" data-reveal>
         <h1 class="hero-title">Your Digital Transformation Partner</h1>
         <p class="hero-subtitle">Brand, websites, video, software, and data—delivered fast, measured by results.</p>
+
         <!-- Rotating benefit statements -->
-      <div class="hero-rotator" id="hero-rotator" aria-live="polite">
-        <span class="rotator-item is-active">Empowering businesses with smart IT solutions.</span>
-        <span class="rotator-item">Launch fast and grow steadily—with measurable results.</span>
-        <span class="rotator-item">One partner for brand, web, video, software, and data.</span>
-        <span class="rotator-item">Africa‑ready solutions, aligned to global standards.</span>
-      </div>
+        <div class="hero-rotator" id="hero-rotator" aria-live="polite">
+          <span class="rotator-item is-active">Empowering businesses with smart IT solutions.</span>
+          <span class="rotator-item">Launch fast and grow steadily—with measurable results.</span>
+          <span class="rotator-item">One partner for brand, web, video, software, and data.</span>
+          <span class="rotator-item">Africa‑ready solutions, aligned to global standards.</span>
+        </div>
+
         <a href="services.html" class="btn btn-primary">Explore Our Packages</a>
       </div>
     </section>
@@ -74,6 +115,7 @@
         <h2 class="section-title" data-reveal>Services at a Glance</h2>
       </div>
 
+      <!-- Auto-scrolling ticker (links to Services sections) -->
       <div class="ticker" aria-label="CoNet services scrolling continuously">
         <!-- Track 1 -->
         <ul class="track">
@@ -145,7 +187,7 @@
       </div>
     </section>
 
-    <!-- Industries We Serve (same list, modern look) -->
+    <!-- Industries We Serve -->
     <section class="container industries" id="industries">
       <h2 class="section-title" data-reveal>Industries We Serve</h2>
       <div class="chip-row industry-chip-grid" data-reveal aria-label="Industries list">
@@ -160,10 +202,9 @@
       </div>
     </section>
 
-    <!-- How We Work (redesigned step cards) -->
+    <!-- How We Work -->
     <section class="container process-v2" id="process">
       <h2 class="section-title" data-reveal>How We Work</h2>
-
       <ol class="process-cards" data-reveal>
         <li class="step">
           <div class="step-card">
@@ -180,7 +221,6 @@
             <p>Goals, users, KPIs, constraints.</p>
           </div>
         </li>
-
         <li class="step">
           <div class="step-card">
             <span class="step-count" aria-hidden="true"></span>
@@ -195,7 +235,6 @@
             <p>Wireframes, brand/UX, content plan.</p>
           </div>
         </li>
-
         <li class="step">
           <div class="step-card">
             <span class="step-count" aria-hidden="true"></span>
@@ -211,7 +250,6 @@
             <p>Implementation, integrations, tests.</p>
           </div>
         </li>
-
         <li class="step">
           <div class="step-card">
             <span class="step-count" aria-hidden="true"></span>
@@ -226,7 +264,6 @@
             <p>Hosting, SSL, monitoring, training.</p>
           </div>
         </li>
-
         <li class="step">
           <div class="step-card">
             <span class="step-count" aria-hidden="true"></span>
@@ -249,49 +286,51 @@
       <h2 class="section-title" data-reveal>Watch Our 60‑Second Intro</h2>
       <div class="video-wrapper" data-reveal>
         <video controls preload="metadata" playsinline width="960" height="540" poster="images/services-growth.jpg">
-         <source src="videos/intro.mp4" type="video/mp4" />
-           Your browser does not support the video tag.
+          <source src="videos/intro.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
 
-   <!-- BEGIN: Home — Primary CTA (modern slab) -->
-<section class="cta-home" aria-label="Primary call to action">
-  <div class="container">
-    <div class="cta-home__card" data-reveal>
-      <div class="cta-home__left">
-        <h2 class="cta-home__title">Ready to Build Your Digital Future?</h2>
-        <p class="cta-home__lead">Tell us your goals—we’ll bring the team and the plan.</p>
+    <!-- CTA (modern slab) -->
+    <section class="cta-home" aria-label="Primary call to action">
+      <div class="container">
+        <div class="cta-home__card" data-reveal>
+          <div class="cta-home__left">
+            <h2 class="cta-home__title">Ready to Build Your Digital Future?</h2>
+            <p class="cta-home__lead">Tell us your goals—we’ll bring the team and the plan.</p>
 
-        <ul class="cta-home__points">
-          <li><span class="i i-check"></span>Free 30‑minute consult</li>
-          <li><span class="i i-check"></span>No obligation, clear next steps</li>
-          <li><span class="i i-check"></span>Tailored plan within 48 hours</li>
-        </ul>
+            <ul class="cta-home__points">
+              <li><span class="i i-check"></span>Free 30‑minute consult</li>
+              <li><span class="i i-check"></span>No obligation, clear next steps</li>
+              <li><span class="i i-check"></span>Tailored plan within 48 hours</li>
+            </ul>
 
-        <div class="cta-home__actions">
-          <a href="contact.html" class="btn btn-primary">Schedule a Free Strategy Call</a>
-          <a href="services.html" class="cta-link">Explore services →</a>
+            <div class="cta-home__actions">
+              <a href="contact.html" class="btn btn-primary">Schedule a Free Strategy Call</a>
+              <a href="services.html" class="cta-link">Explore services →</a>
+            </div>
+          </div>
+
+          <div class="cta-home__right" aria-hidden="true">
+            <div class="cta-home__badge">Let’s talk</div>
+            <div class="cta-home__chips">
+              <span>Branding</span>
+              <span>Web</span>
+              <span>E‑commerce</span>
+              <span>Video</span>
+              <span>SEO</span>
+              <span>Software</span>
+              <span>Analytics</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="cta-home__right" aria-hidden="true">
-        <div class="cta-home__badge">Let’s talk</div>
-        <div class="cta-home__chips">
-          <span>Branding</span>
-          <span>Web</span>
-          <span>E‑commerce</span>
-          <span>Video</span>
-          <span>SEO</span>
-          <span>Software</span>
-          <span>Analytics</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- END: Home — Primary CTA (modern slab) --> <!-- CTA -->
-</main>
+    <!-- Sticky mobile CTA (optional) -->
+    <a class="btn btn-primary sticky-cta" href="contact.html">Free Strategy Call</a>
+  </main>
 
   <footer class="footer">
     <div class="container footer-content">
@@ -302,5 +341,4 @@
 
   <script src="js/script.js" defer></script>
 </body>
-
 </html>
