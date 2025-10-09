@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CoNet Ltd — Assets Check</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    :root{
+      --brand:#D4AF37; --ok:#16a34a; --bad:#dc2626;
+      --bg:#f9fafb; --card:#ffffff; --border:#e5e7eb; --text:#111827; --muted:#6b7280;
+    }
+    *{ box-sizing:border-box }
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.6;
+    }
+
+    /* Header */
+    header{
+      background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5;
+    }
+    .wrap{ max-width:1100px; margin:0 auto; padding:1rem }
+    h1{ margin:0; font-size:1.25rem }
+    .desc{ margin:.25rem 0 0; color:#374151 }
+    .controls{ display:flex; gap:.5rem; margin-top:.8rem; flex-wrap:wrap }
+    button{
+      cursor:pointer; border:1px solid var(--border); background:#fff; border-radius:8px;
+      padding:.55rem .9rem; font-weight:600;
+    }
+    button.primary{ background:var(--brand); border-color:var(--brand); color:#0f1720 }
+
+    /* Sections */
+    main{ padding:1.25rem 0 2rem }
+    section{ margin:1.25rem 0 }
+    h2{ margin:0 0 .65rem; font-size:1.05rem }
+
+    /* Cards/grid */
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem;
+    }
+    .grid{ display:grid; grid-template-columns:1fr; gap:.8rem }
+    @media (min-width:780px){ .grid{ grid-template-columns:1fr 1fr } }
+
+    /* Rows */
+    .row{
+      display:grid; grid-template-columns:1.25fr .9fr .6fr; gap:.6rem; align-items:center;
+      border:1px dashed var(--border); border-radius:10px; padding:.6rem .7rem; background:#fff;
+    }
+    .meta{ min-width:0 }
+    .label{ font-weight:700 }
+    .path{
+      display:block; color:#374151; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .used{ margin-top:.3rem; color:#4b5563; font-size:.9rem }
+    .used a{ color:#0f1720; text-decoration:underline; margin-right:.35rem }
+
+    .preview{ height:56px; display:flex; align-items:center; gap:.35rem; overflow:hidden }
+    .thumb{ height:56px; width:auto; border-radius:6px; border:1px solid var(--border); background:#f3f4f6 }
+
+    .status{ display:inline-flex; align-items:center; gap:.4rem; font-weight:700; border-radius:999px; padding:.25rem .6rem }
+    .ok{ background:rgba(22,163,74,.1); color:var(--ok); border:1px solid rgba(22,163,74,.25) }
+    .bad{ background:rgba(220,38,38,.08); color:var(--bad); border:1px solid rgba(220,38,38,.25) }
+    .pending{ background:#f3f4f6; color:#374151; border:1px solid var(--border) }
+
+    .small-btn{ border:0; background:#f3f4f6; border-radius:6px; padding:.25rem .45rem; font-size:.8rem; cursor:pointer }
+    .hint{ color:var(--muted); font-size:.9rem; margin-top:.35rem }
+
+    footer{ padding:1rem 0; color:#6b7280; text-align:center }
+    .small{ font-size:.85rem }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>CoNet Ltd — Assets Check</h1>
+      <p class="desc">Verify that your images and videos exist at the correct paths and names. Keep assets in /images and /videos.</p>
+      <div class="controls">
+        <button class="primary" id="recheck">Recheck assets</button>
+        <button id="addCustom">Add custom path to check</button>
+        <span class="small">Tip: Update og:image absolute URL to your live domain on each page.</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Images (folder: /images)</h2>
+      <div id="imagesList" class="grid card"></div>
+      <p class="hint">Recommended: JPG/WebP ≤ 400 KB. Sizes: OG 1200×630, posters 1280×720, portfolio 1200×800.</p>
+    </section>
+
+    <section>
+      <h2>Videos (folder: /videos)</h2>
+      <div id="videosList" class="grid card"></div>
+      <p class="hint">Recommended: MP4 (H.264 + AAC) ≤ 30 MB, 1280×720 or 1920×1080.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Green = Found. Red = Missing. Upload with the exact path/name shown above, then click “Recheck assets”.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ------------------------------
+       1) PAGES (used for "Open page")
+       ------------------------------ */
+    const PAGES = {
+      home:      { href: 'index.html',     label: 'Home' },
+      about:     { href: 'about.html',     label: 'About' },
+      services:  { href: 'services.html',  label: 'Services' },
+      portfolio: { href: 'portfolio.html', label: 'Portfolio' },
+      contact:   { href: 'contact.html',   label: 'Contact' }
+    };
+
+    /* ------------------------------
+       2) ASSETS (EDIT THESE LISTS)
+       ------------------------------ */
+    // Images expected by the site (keep these names/paths)
+    const IMAGES = [
+      {
+        path: 'images/og-cover.jpg',
+        label: 'Open Graph cover',
+        usedOn: [PAGES.home, PAGES.about, PAGES.services, PAGES.portfolio, PAGES.contact],
+        note: 'Used in <head> for social previews.'
+      },
+      { path: 'images/services-growth.jpg',    label: 'Homepage video poster',  usedOn: [PAGES.home] },
+      { path: 'images/about-team.jpg',         label: 'About page image',       usedOn: [PAGES.about] },
+      { path: 'images/about-video-poster.jpg', label: 'About video poster',     usedOn: [PAGES.about] },
+      { path: 'images/portfolio-1.jpg',        label: 'Portfolio 1 (Fintech App)',  usedOn: [PAGES.portfolio] },
+      { path: 'images/portfolio-2.jpg',        label: 'Portfolio 2 (E‑commerce)',   usedOn: [PAGES.portfolio] },
+      { path: 'images/portfolio-3.jpg',        label: 'Portfolio 3 (Real Estate)',  usedOn: [PAGES.portfolio] },
+      { path: 'images/portfolio-4.jpg',        label: 'Portfolio 4 (Branding)',     usedOn: [PAGES.portfolio] }
+    ];
+
+    // Videos expected by the site (keep these names/paths)
+    const VIDEOS = [
+      {
+        path: 'videos/intro.mp4',
+        label: 'Homepage: 60‑second intro',
+        usedOn: [PAGES.home],
+        poster: 'images/services-growth.jpg'
+      },
+      {
+        path: 'videos/company-intro.mp4',
+        label: 'About: 90‑second intro',
+        usedOn: [PAGES.about],
+        poster: 'images/about-video-poster.jpg'
+      }
+    ];
+
+    /* ------------------------------
+       3) HELPERS
+       ------------------------------ */
+    const $ = s => document.querySelector(s);
+    const cacheBust = url => url + (url.includes('?') ? '&' : '?') + 'cb=' + Date.now();
+
+    function badge(text, cls){
+      const s = document.createElement('span');
+      s.className = 'status ' + cls;
+      s.textContent = text;
+      return s;
+    }
+    function copyBtn(text){
+      const b = document.createElement('button');
+      b.className = 'small-btn';
+      b.textContent = 'Copy path';
+      b.title = text;
+      b.addEventListener('click', async () => {
+        try{ await navigator.clipboard.writeText(text); b.textContent = 'Copied'; setTimeout(()=> b.textContent = 'Copy path', 900); }
+        catch{ alert('Copy failed. Copy manually: ' + text); }
+      });
+      return b;
+    }
+    function usedOnEl(list){
+      if (!list || !list.length) return null;
+      const div = document.createElement('div'); div.className = 'used';
+      div.append('Used on: ');
+      list.forEach((p, i) => {
+        const a = document.createElement('a');
+        a.href = p.href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = p.label;
+        div.appendChild(a);
+
+        const btn = document.createElement('button');
+        btn.className = 'small-btn'; btn.textContent = 'Open page';
+        btn.addEventListener('click', () => window.open(p.href, '_blank', 'noopener'));
+        div.appendChild(btn);
+
+        if (i < list.length - 1) div.append(' | ');
+      });
+      return div;
+    }
+
+    /* ------------------------------
+       4) TESTERS
+       ------------------------------ */
+    function testImage(item, mount){
+      mount.innerHTML = '';
+      const row = document.createElement('div'); row.className = 'row';
+
+      const meta = document.createElement('div'); meta.className = 'meta';
+      const name = document.createElement('div'); name.className = 'label'; name.textContent = item.label;
+      const path = document.createElement('code'); path.className = 'path'; path.textContent = item.path;
+      meta.append(name, path);
+      const used = usedOnEl(item.usedOn); if (used) meta.appendChild(used);
+      if (item.note){ const note = document.createElement('div'); note.className = 'hint'; note.textContent = item.note; meta.appendChild(note); }
+
+      const preview = document.createElement('div'); preview.className = 'preview'; preview.textContent = '—';
+
+      const controls = document.createElement('div');
+      const st = badge('Checking…', 'pending');
+      controls.append(st, ' ', copyBtn(item.path));
+
+      row.append(meta, preview, controls);
+      mount.appendChild(row);
+
+      const img = new Image();
+      img.onload = () => {
+        preview.innerHTML = '';
+        img.className = 'thumb';
+        preview.appendChild(img);
+        st.replaceWith(badge('Found', 'ok'));
+      };
+      img.onerror = () => { st.replaceWith(badge('Missing', 'bad')); };
+      img.src = cacheBust(item.path);
+      img.alt = item.label;
+    }
+
+    function testVideo(item, mount){
+      mount.innerHTML = '';
+      const row = document.createElement('div'); row.className = 'row';
+
+      const meta = document.createElement('div'); meta.className = 'meta';
+      const name = document.createElement('div'); name.className = 'label'; name.textContent = item.label;
+      const path = document.createElement('code'); path.className = 'path'; path.textContent = item.path;
+      meta.append(name, path);
+      const used = usedOnEl(item.usedOn); if (used) meta.appendChild(used);
+
+      const preview = document.createElement('div'); preview.className = 'preview'; preview.textContent = '—';
+
+      const controls = document.createElement('div');
+      const st = badge('Checking…', 'pending');
+      controls.append(st, ' ', copyBtn(item.path));
+
+      row.append(meta, preview, controls);
+      mount.appendChild(row);
+
+      const v = document.createElement('video');
+      v.preload = 'metadata';
+      let done = false;
+
+      const ok = () => { if (done) return; done = true; st.replaceWith(badge('Found', 'ok')); showPoster(); };
+      const fail = () => { if (done) return; done = true; st.replaceWith(badge('Missing', 'bad')); };
+
+      v.onloadedmetadata = ok;
+      v.onerror = fail;
+
+      // Safety timeout for odd server/codec cases
+      setTimeout(() => { if (!done && v.readyState === 0) fail(); }, 5000);
+
+      v.src = cacheBust(item.path);
+
+      function showPoster(){
+        if (!item.poster){ preview.textContent = 'OK'; return; }
+        const img = new Image();
+        img.className = 'thumb';
+        img.onload = () => { preview.innerHTML = ''; preview.appendChild(img); };
+        img.onerror = () => { preview.textContent = 'Poster missing: ' + item.poster; };
+        img.src = cacheBust(item.poster);
+        img.alt = 'Poster';
+      }
+    }
+
+    /* ------------------------------
+       5) RENDER + UI
+       ------------------------------ */
+    function renderAll(){
+      const imgList = document.getElementById('imagesList'); imgList.innerHTML = '';
+      IMAGES.forEach(it => { const mount = document.createElement('div'); imgList.appendChild(mount); testImage(it, mount); });
+
+      const vidList = document.getElementById('videosList'); vidList.innerHTML = '';
+      VIDEOS.forEach(it => { const mount = document.createElement('div'); vidList.appendChild(mount); testVideo(it, mount); });
+    }
+
+    document.getElementById('recheck').addEventListener('click', renderAll);
+
+    document.getElementById('addCustom').addEventListener('click', () => {
+      const path = prompt('Enter a relative path, e.g., images/example.jpg or videos/clip.mp4');
+      if (!path) return;
+      const isVideo = /\.(mp4|webm|ogg)$/i.test(path);
+      if (isVideo){
+        const item = { path, label: 'Custom video' };
+        VIDEOS.push(item);
+        const mount = document.createElement('div'); document.getElementById('videosList').appendChild(mount);
+        testVideo(item, mount);
+      } else {
+        const item = { path, label: 'Custom image' };
+        IMAGES.push(item);
+        const mount = document.createElement('div'); document.getElementById('imagesList').appendChild(mount);
+        testImage(item, mount);
+      }
+    });
+
+    // Initial run
+    renderAll();
+  </script>
+</body>
+</html>

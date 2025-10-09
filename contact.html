@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" href="images/favicon.ico?v=1" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=1">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#D4AF37">
+<head>
+  <link rel="canonical" href="https://YOUR-REAL-DOMAIN.com/contact.html">
+  <meta property="og:url" content="https://YOUR-REAL-DOMAIN.com/contact.html">
+  <meta property="og:image" content="https://YOUR-REAL-DOMAIN.com/images/og-cover.jpg">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | CoNet Ltd</title>
+  <meta name="description" content="Contact CoNet Ltd to discuss your next project. We’re ready to help you launch and scale."/>
+  <link rel="canonical" href="https://yourdomain.com/contact.html"/>
+  <meta property="og:title" content="Contact CoNet Ltd"/>
+  <meta property="og:description" content="Let's start a conversation about your next project."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://yourdomain.com/contact.html"/>
+  <meta property="og:image" content="https://yourdomain.com/images/og-cover.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'"> <noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap"></noscript> 
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Primary">
+      <a href="index.html" class="nav-logo">CoNet Ltd</a>
+      <button class="hamburger" id="menuButton" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <ul class="nav-menu" id="primary-navigation">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link btn active">Get in Touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Let's start a conversation about your next project.</p>
+      </div>
+    </section>
+
+    <section class="container contact-section">
+      <div class="contact-form-container" data-reveal>
+        <h2>Send us a Message</h2>
+
+        <!-- Replace ACTION_URL_HERE with your Formspree endpoint -->
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/ACTION_URL_HERE" method="POST" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="service">Interested Service</label>
+            <select id="service" name="service">
+              <option value="branding">Branding & Creative</option>
+              <option value="web">Websites & Hosting</option>
+              <option value="ecommerce">E‑commerce & Payments</option>
+              <option value="content">Content & Video</option>
+              <option value="growth">Growth Marketing & SEO</option>
+              <option value="software">Software & Integrations</option>
+              <option value="analytics">Data & Analytics</option>
+              <option value="it">IT Consulting & Cloud</option>
+              <option value="security">Security & Compliance</option>
+              <option value="support">Support & Managed</option>
+              <option value="training">Training & Enablement</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+          </div>
+
+          <!-- Honeypot (spam protection) -->
+          <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off">
+          <!-- Formspree email subject -->
+          <input type="hidden" name="_subject" value="New Inquiry from CoNet Website">
+
+          <button type="submit" class="btn btn-primary">Submit Message</button>
+          <p id="formStatus" role="status" aria-live="polite" class="form-status"></p>
+        </form>
+      </div>
+
+      <div class="contact-details" data-reveal>
+        <h2>Contact Information</h2>
+        <p>We are ready to listen and eager to help you succeed. Reach out through any channel below.</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:conet@gmail.com">conet@gmail.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+212800760644">+212 800 760 644</a></li>
+          <li><strong>Address:</strong> No. 212 Uruhu St, Nairobi, Kenya</li>
+        </ul>
+        <p><strong>Business Hours:</strong><br>Monday - Friday: 9:00 AM - 5:00 PM</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> CoNet Ltd. All Rights Reserved.</p>
+      <p>Empowering Africa's Digital Future.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

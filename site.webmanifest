@@ -1,0 +1,12 @@
+{
+  "name": "CoNet Ltd",
+  "short_name": "CoNet",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF5",
+  "theme_color": "#D4AF37",
+  "icons": [
+    { "src": "images/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
