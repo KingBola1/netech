@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-REAL-DOMAIN.com/sitemap.xml
+Sitemap: https://kingbola1.github.io/CoNet/sitemap.xml
