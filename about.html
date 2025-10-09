@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" href="images/favicon.ico?v=1" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=1">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#D4AF37">
 <head>
-  <link rel="canonical" href="https://kingbola1.github.io/CoNet/about.html">
-  <meta property="og:url" content="https://kingbola1.github.io/CoNet/about.html">
-  <meta property="og:image" content="https://kingbola1.github.io/CoNet/images/og-cover.jpg">  
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About CoNet Ltd | Our Vision for Africa's Digital Future</title>
-  <meta name="description" content="CoNet Ltd empowers African SMEs with accessible, world-class digital tools, custom software, and data-driven strategies."/>
-  <link rel="canonical" href="https://yourdomain.com/about.html"/>
-  <meta property="og:title" content="About CoNet Ltd"/>
-  <meta property="og:description" content="Our mission is to empower African SMEs and fuel a digital-first future."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://yourdomain.com/about.html"/>
-  <meta property="og:image" content="https://yourdomain.com/images/og-cover.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'"> <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap"></noscript> 
-  <link rel="stylesheet" href="css/style.css"/>
+  <meta name="description" content="CoNet Ltd empowers African SMEs with accessible, world-class digital tools, custom software, and data-driven strategies." />
+
+  <!-- Canonical + Open Graph (use your GitHub Pages URL for About page) -->
+  <link rel="canonical" href="https://kingbola1.github.io/CoNet/about.html" />
+  <meta property="og:title" content="About CoNet Ltd" />
+  <meta property="og:description" content="Our mission is to empower African SMEs and fuel a digital-first future." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kingbola1.github.io/CoNet/about.html" />
+  <meta property="og:image" content="https://kingbola1.github.io/CoNet/images/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons / PWA -->
+  <link rel="icon" href="images/favicon.ico?v=1" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=1">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#D4AF37">
+
+  <!-- Google Fonts (preload to reduce blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap">
+  </noscript>
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Organization schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CoNet Ltd",
+    "url": "https://kingbola1.github.io/CoNet/",
+    "logo": "https://kingbola1.github.io/CoNet/images/android-chrome-192x192.png",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+212800760644",
+      "email": "conet@gmail.com",
+      "contactType": "customer support",
+      "areaServed": "Africa",
+      "availableLanguage": ["en"]
+    }],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No. 212 Uruhu St",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "sameAs": []
+  }
+  </script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -47,38 +88,37 @@
   </header>
 
   <main id="main">
-    <!-- BEGIN: Page Hero (About) -->
-<!-- BEGIN: Page Hero (About) — no breadcrumb -->
-<section class="page-hero page-hero--texture">
-  <div class="container" data-reveal>
-    <h1 class="page-hero__title">About CoNet Ltd</h1>
-    <p class="page-hero__desc">
-      We are more than a technology company; we are partners in progress.
-    </p>
+    <!-- Page Hero (About) — Africa-inspired texture, no breadcrumb -->
+    <section class="page-hero page-hero--texture">
+      <div class="container" data-reveal>
+        <h1 class="page-hero__title">About CoNet Ltd</h1>
+        <p class="page-hero__desc">
+          We are more than a technology company; we are partners in progress.
+        </p>
+        <div class="meta-chips">
+          <span class="chip chip--soft">Partner-first</span>
+          <span class="chip chip--soft">Global standards</span>
+          <span class="chip chip--soft">Africa-ready</span>
+        </div>
+      </div>
+      <svg class="page-hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,32 C240,80 480,0 720,32 C960,64 1200,16 1440,48 L1440,80 L0,80 Z" fill="currentColor"></path>
+      </svg>
+    </section>
 
-    <div class="meta-chips">
-      <span class="chip chip--soft">Partner-first</span>
-      <span class="chip chip--soft">Global standards</span>
-      <span class="chip chip--soft">Africa-ready</span>
-    </div>
-  </div>
+    <!-- Who We Are (restored) -->
+    <section class="container about-section">
+      <div class="about-content" data-reveal>
+        <h2 class="section-title-left">Who We Are</h2>
+        <p>CoNet Ltd empowers African SMEs with modern websites, brand systems, content, custom software, and data. We align to your goals, move quickly, and deliver to global standards—so you can launch faster and grow steadily.</p>
+        <p>Our approach is practical and measurable: clear roadmaps, on‑time delivery, and dashboards that show results.</p>
+      </div>
+      <div class="about-image" data-reveal>
+        <img src="images/about-team.jpg" alt="The diverse and professional team of CoNet Ltd" width="1200" height="800" loading="lazy" decoding="async">
+      </div>
+    </section>
 
-  <svg class="page-hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,32 C240,80 480,0 720,32 C960,64 1200,16 1440,48 L1440,80 L0,80 Z" fill="currentColor"></path>
-  </svg>
-</section>
-<!-- END: Page Hero (About) -->
- <!-- Who We Are (restored) -->
-<section class="container about-section">
-  <div class="about-content" data-reveal>
-    <h2 class="section-title-left">Who We Are</h2>
-    <p>CoNet Ltd empowers African SMEs with modern websites, brand systems, content, custom software, and data. We align to your goals, move quickly, and deliver to global standards—so you can launch faster and grow steadily.</p>
-    <p>Our approach is practical and measurable: clear roadmaps, on‑time delivery, and dashboards that show results.</p>
-  </div>
-  <div class="about-image" data-reveal>
-    <img src="images/about-team.jpg" alt="The diverse and professional team of CoNet Ltd" width="1200" height="800" loading="lazy" decoding="async">
-  </div>
-</section>
+    <!-- Mission / Vision -->
     <section class="container mission-vision">
       <div class="mv-grid">
         <article class="mv-card" data-reveal>
@@ -92,16 +132,18 @@
       </div>
     </section>
 
+    <!-- Company video -->
     <section class="container video-section">
       <h2 class="section-title" data-reveal>Meet CoNet in 90 Seconds</h2>
       <div class="video-wrapper" data-reveal>
         <video controls preload="metadata" playsinline width="960" height="540" poster="images/about-video-poster.jpg">
           <source src="videos/company-intro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+          Your browser does not support the video tag.
         </video>
       </div>
     </section>
 
+    <!-- Values -->
     <section class="values-section section-dark">
       <div class="container">
         <h2 class="section-title" data-reveal>Our Core Values</h2>
@@ -132,5 +174,4 @@
 
   <script src="js/script.js" defer></script>
 </body>
-
 </html>
