@@ -868,3 +868,55 @@ body { overflow-x: clip; }                     /* blocks tiny 1px overflows from
 html { scrollbar-gutter: stable both-edges; }
 body { overflow-x: clip; }
 .hero { overflow: hidden; }
+/* === Fix Services page overflow (chips carousel) === */
+.chip-carousel {
+  position: relative;
+  padding-inline: 56px;   /* space inside for the two arrow buttons */
+  overflow: hidden;       /* keep the section inside the screen */
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Only the chips list should scroll horizontally */
+.chip-carousel .chips-scroller {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  max-width: 100%;
+}
+
+.chip-carousel .chip {
+  flex: 0 0 auto;         /* prevent chips from wrapping/squeezing */
+}
+
+/* Place the arrow buttons on top of the scroller, inside the wrapper */
+.chip-carousel .chip-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  z-index: 2;
+}
+.chip-carousel .chip-nav.prev { left: 8px; }
+.chip-carousel .chip-nav.next { right: 8px; }
+
+/* The small progress bar under the chips should not add width */
+.chip-carousel .chip-progress {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Optional: on small screens, hide arrows (users can swipe) */
+@media (max-width: 640px) {
+  .chip-carousel { padding-inline: 0; }
+  .chip-carousel .chip-nav { display: none; }
+}
+
+/* Optional global guard: avoid any tiny horizontal scroll leaks */
+html, body { overflow-x: clip; } /* use hidden if clip isn't supported */
