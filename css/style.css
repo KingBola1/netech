@@ -943,3 +943,12 @@ html, body { overflow-x: clip; } /* use hidden if clip isn't supported */
 @media (max-width: 480px) {
   .whatsapp-float { bottom: 96px; }
 }
+
+/* GPU rendering stability fix */
+.hero-section,
+.video-background,
+.animated-element {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
