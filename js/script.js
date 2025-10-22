@@ -1,4 +1,4 @@
-/* CoNet Ltd — Global JS
+/* Netech Ltd — Global JS
    - Accessible nav + active state
    - Sticky navbar shadow
    - Mark current page
@@ -608,4 +608,5 @@
 (() => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 })();
